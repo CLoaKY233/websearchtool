@@ -1,7 +1,11 @@
 [project]
 name = "websearchtool"
 version = "0.1.0"
-description = "Add your description here"
+description = "Web Search Agent for AI Integration"
+authors = [{ name = "CLoaKY", email = "laysheth1@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pydantic>=2.11.5",
+    "pydantic-settings>=2.9.1",
+]
