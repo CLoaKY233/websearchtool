@@ -6,6 +6,7 @@ authors = [{ name = "CLoaKY", email = "laysheth1@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "aiohttp>=3.12.12",
     "pydantic>=2.11.5",
     "pydantic-settings>=2.9.1",
 ]
