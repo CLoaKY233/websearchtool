@@ -7,7 +7,7 @@ from ..core.exceptions import APIRequestException
 from ..utils.logging import logger
 
 
-class GoggleCSEClient:
+class GoogleCSEClient:
     BASE_URL = "https://www.googleapis.com/customsearch/v1"
 
     async def fetch(
@@ -15,7 +15,7 @@ class GoggleCSEClient:
     ) -> Optional[Dict[Any, Any]]:
         params = {
             "key": settings.google_api_key,
-            "cx": settings.google_case_id,
+            "cx": settings.google_cse_id,
             "q": query,
             "num": min(num_results, 10),
         }

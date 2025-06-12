@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     google_api_key: str = Field(
         default="", description="API key for google search engine"
     )
-    google_case_id: str = Field(
+    google_cse_id: str = Field(
         default="", description="Google Search Engine ID"
     )
     default_num_results: int = Field(
