@@ -31,5 +31,16 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", case_sensitive=False)
 
+    # Github Models settings
+    github_token: str = Field(
+        default="", description="GitHub Models auth token"
+    )
+    llm_model: str = Field(
+        default="meta/Meta-Llama-3.1-70B-Instruct",
+        description="Default model for SERP ranking",
+    )
+    llm_temperature: float = Field(default=0.0, ge=0.0, le=1.0)
+    llm_max_tokens: int = Field(default=1024, ge=256, le=4096)
+
 
 settings = Settings()

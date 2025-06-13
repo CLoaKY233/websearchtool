@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional
+from dataclasses import dataclass
+from typing import Any, AsyncIterator, Dict, Optional
 
 
 class SearchInterface(ABC):
@@ -16,3 +17,25 @@ class SearchInterface(ABC):
     def format_results(self, search_data: Dict[Any, Any]) -> str:
         """Return prettified string for terminal display"""
         ...
+
+
+@dataclass
+class StreamingChunk:
+    content: str
+    is_complete: bool = False
+    usage_info: Optional[Dict[str, Any]] = None
+
+
+class LLMInterface(ABC):
+    """Contract for any Large-Language-Model implementation"""
+
+    @abstractmethod
+    async def complete(
+        self, prompt: str, **kwargs: Any
+    ) -> str:  # full text completion
+        ...
+
+    @abstractmethod
+    def stream(
+        self, prompt: str, **kwargs: Any
+    ) -> AsyncIterator[StreamingChunk]: ...

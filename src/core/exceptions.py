@@ -14,3 +14,9 @@ class CacheMissException(SearchException):
     """Raise when expected cache entry is missing"""
 
     pass
+
+
+class LLMException(SearchException):
+    """Errors raised by any LLM implementation"""
+
+    ...
